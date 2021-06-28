@@ -1,0 +1,8 @@
+capabilities:
+   browserName: "chrome"
+   chromeOptions:
+    args:
+        - headless
+   acceptInsecureCerts: true
+   platformName: "windows"
+server: "http://localhost:4444/wd/hub"

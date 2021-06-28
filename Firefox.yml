@@ -1,0 +1,8 @@
+capabilities:
+   browserName: "firefox"
+   moz:firefoxOptions:
+     args:
+        - "-headless"
+   acceptInsecureCerts: true
+   platformName: "windows"
+server: "http://localhost:4444/wd/hub"

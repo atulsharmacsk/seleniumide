@@ -1,0 +1,254 @@
+{
+  "id": "8e3c2755-0898-4b68-bccd-aa79ca512ddf",
+  "version": "2.0",
+  "name": "FXBA_POC",
+  "url": "https://fxservices-dev1.markit.partners/affirmations2/#/login",
+  "tests": [{
+    "id": "712014d6-744c-4875-a7c9-fd816dcc1d7d",
+    "name": "Page_Login",
+    "commands": [{
+      "id": "5ea25e5e-b68a-4e8c-9897-8fc39d43a9da",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b176dff4-e846-4032-ba93-f317f4a604f3",
+      "comment": "",
+      "command": "open",
+      "target": "https://fxservices-dev1.markit.partners/affirmations2/#/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9ea9c88-3838-4feb-96eb-4d9913ae8a98",
+      "comment": "",
+      "command": "pause",
+      "target": "2000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2f753491-2d8f-4409-9489-89d01abe72bd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "047e78d4-25e2-4462-ade2-c213069c6b36",
+      "comment": "",
+      "command": "while",
+      "target": "document.title!=='Markit - FX Broker Affirmation Service'",
+      "targets": [],
+      "value": "30"
+    }, {
+      "id": "ddfaadf1-ed9e-44b1-bfc2-17ca14764b39",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "08d639ce-4ee4-4518-9958-538f40946c52",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return document.querySelectorAll('#logon-signin').length",
+      "targets": [],
+      "value": "loginbutton"
+    }, {
+      "id": "f973dc75-32bd-430c-8a99-282267a9f313",
+      "comment": "",
+      "command": "echo",
+      "target": "${loginbutton}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f648ea9a-d75a-4711-92a8-abfc39007c2a",
+      "comment": "",
+      "command": "if",
+      "target": "${loginbutton}==1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28529d46-c649-4a54-a2df-bc6444dc8963",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.ng-valid", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='logon-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${username}"
+    }, {
+      "id": "1b64becc-a1a8-4847-acf6-9e533c6bb732",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.ng-untouched", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='logon-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${password}"
+    }, {
+      "id": "2ff3010b-1e87-4659-9f0d-b623742060f1",
+      "comment": "",
+      "command": "click",
+      "target": "id=logon-signin",
+      "targets": [
+        ["id=logon-signin", "id"],
+        ["css=#logon-signin", "css:finder"],
+        ["xpath=//button[@id='logon-signin']", "xpath:attributes"],
+        ["xpath=//form[@id='logon-form']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ce82989-ff92-4c6b-8ccd-d20c9129f92d",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4a39ed30-7181-4057-9a83-c92e961cb9e5",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.btn:nth-child(1) > div:nth-child(2)",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "5cd17329-68e5-429b-af97-d07581bbb66e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.btn:nth-child(1) > div:nth-child(2)",
+      "targets": [
+        ["css=.btn:nth-child(1) > div:nth-child(2)", "css:finder"],
+        ["xpath=//nav[@id='toolbar']/div/div[2]/div/label/div", "xpath:idRelative"],
+        ["xpath=//label/div", "xpath:position"]
+      ],
+      "value": "Cash"
+    }, {
+      "id": "2a830bb3-58bd-4f05-970c-24384cf3a8e1",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.btn:nth-child(2) > div:nth-child(2)",
+      "targets": [
+        ["css=.btn:nth-child(2) > div:nth-child(2)", "css:finder"],
+        ["xpath=//nav[@id='toolbar']/div/div[2]/div/label[2]/div", "xpath:idRelative"],
+        ["xpath=//label[2]/div", "xpath:position"]
+      ],
+      "value": "Options"
+    }]
+  }, {
+    "id": "67095031-d3cd-45b9-a8c3-8f67460a48af",
+    "name": "Test_Login",
+    "commands": [{
+      "id": "4cb7d0d6-5ed4-4c87-bbb2-c0b09a9f6264",
+      "comment": "",
+      "command": "store",
+      "target": "atul@msops",
+      "targets": [],
+      "value": "username"
+    }, {
+      "id": "f0e08290-e3b5-442f-8005-98fdf14a7c86",
+      "comment": "",
+      "command": "store",
+      "target": "Undert@ker@123",
+      "targets": [],
+      "value": "password"
+    }, {
+      "id": "e6f9c81b-04ed-47bf-aa7b-5c82a61528e6",
+      "comment": "",
+      "command": "run",
+      "target": "Page_Login",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "c5f95390-efa3-4afa-b0de-2813d4c86cb6",
+    "name": "Test_Home_Page",
+    "commands": [{
+      "id": "cd3e8e3d-715e-47cd-b6ee-5a907bddec12",
+      "comment": "",
+      "command": "store",
+      "target": "atul@msops",
+      "targets": [],
+      "value": "username"
+    }, {
+      "id": "b6ff3469-9bdd-4bc8-a093-6a6b1bf89975",
+      "comment": "",
+      "command": "store",
+      "target": "Undert@ker@123",
+      "targets": [],
+      "value": "password"
+    }, {
+      "id": "77fa2e7c-3168-4d48-a30e-3f00553fd86c",
+      "comment": "",
+      "command": "run",
+      "target": "Page_Login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "18dee6e7-b584-44e6-a574-9ed9942a603e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#ngb-nav-0 > div:nth-child(1)",
+      "targets": [
+        ["css=#ngb-nav-0 > div:nth-child(1)", "css:finder"],
+        ["xpath=//a[@id='ngb-nav-0']/div", "xpath:idRelative"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "Pending"
+    }, {
+      "id": "9def3f8b-1fca-467e-965f-3fb10b507db4",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#ngb-nav-1 > div:nth-child(1)",
+      "targets": [
+        ["css=#ngb-nav-1 > div:nth-child(1)", "css:finder"],
+        ["xpath=//a[@id='ngb-nav-1']/div", "xpath:idRelative"],
+        ["xpath=//li[2]/a/div", "xpath:position"]
+      ],
+      "value": "Accepted"
+    }, {
+      "id": "a5a5d877-d05c-4260-b676-22b41d6a78a7",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#ngb-nav-2 > div:nth-child(1)",
+      "targets": [
+        ["css=#ngb-nav-2 > div:nth-child(1)", "css:finder"],
+        ["xpath=//a[@id='ngb-nav-2']/div", "xpath:idRelative"],
+        ["xpath=//li[3]/a/div", "xpath:position"]
+      ],
+      "value": "Rejected"
+    }, {
+      "id": "d422ce56-6bb3-44e9-9e0d-9451f0296e6a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#ngb-nav-3 > div:nth-child(1)",
+      "targets": [
+        ["css=#ngb-nav-3 > div:nth-child(1)", "css:finder"],
+        ["xpath=//a[@id='ngb-nav-3']/div", "xpath:idRelative"],
+        ["xpath=//li[4]/a/div", "xpath:position"]
+      ],
+      "value": "UnActioned"
+    }]
+  }],
+  "suites": [{
+    "id": "7318149a-8825-4518-be7f-690a644cb1df",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": true,
+    "timeout": 300,
+    "tests": ["c5f95390-efa3-4afa-b0de-2813d4c86cb6", "67095031-d3cd-45b9-a8c3-8f67460a48af"]
+  }],
+  "urls": ["https://fxservices-dev1.markit.partners/affirmations2/#/login"],
+  "plugins": []
+}

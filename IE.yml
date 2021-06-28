@@ -1,0 +1,9 @@
+capabilities:
+   browserName: "internet explorer"
+   internetExplorerOptions:
+      args:
+        - "-headless"
+   platformName: "windows"
+server: "http://localhost:4444/wd/hub"
+
+
