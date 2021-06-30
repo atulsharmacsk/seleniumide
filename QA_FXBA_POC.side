@@ -1,0 +1,355 @@
+{
+  "id": "8e3c2755-0898-4b68-bccd-aa79ca512ddf",
+  "version": "2.0",
+  "name": "FXBA_POC",
+  "url": "https://fxservices-qa3.markit.partners/affirmations/#/login",
+  "tests": [{
+    "id": "712014d6-744c-4875-a7c9-fd816dcc1d7d",
+    "name": "2_Page_Login",
+    "commands": [{
+      "id": "5ea25e5e-b68a-4e8c-9897-8fc39d43a9da",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b176dff4-e846-4032-ba93-f317f4a604f3",
+      "comment": "",
+      "command": "open",
+      "target": "https://fxservices-qa3.markit.partners/affirmations/#/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9ea9c88-3838-4feb-96eb-4d9913ae8a98",
+      "comment": "",
+      "command": "pause",
+      "target": "2000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2f753491-2d8f-4409-9489-89d01abe72bd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "047e78d4-25e2-4462-ade2-c213069c6b36",
+      "comment": "",
+      "command": "while",
+      "target": "document.title!=='Markit - FX Broker Affirmation Service'",
+      "targets": [],
+      "value": "30"
+    }, {
+      "id": "ddfaadf1-ed9e-44b1-bfc2-17ca14764b39",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "08d639ce-4ee4-4518-9958-538f40946c52",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return document.querySelectorAll('#logon-signin').length",
+      "targets": [],
+      "value": "loginbutton"
+    }, {
+      "id": "f973dc75-32bd-430c-8a99-282267a9f313",
+      "comment": "checking if login button is present",
+      "command": "echo",
+      "target": "${loginbutton}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f648ea9a-d75a-4711-92a8-abfc39007c2a",
+      "comment": "",
+      "command": "if",
+      "target": "${loginbutton}==1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28529d46-c649-4a54-a2df-bc6444dc8963",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.ng-valid", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='logon-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${username}"
+    }, {
+      "id": "1b64becc-a1a8-4847-acf6-9e533c6bb732",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.ng-untouched", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='logon-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${password}"
+    }, {
+      "id": "2ff3010b-1e87-4659-9f0d-b623742060f1",
+      "comment": "",
+      "command": "click",
+      "target": "id=logon-signin",
+      "targets": [
+        ["id=logon-signin", "id"],
+        ["css=#logon-signin", "css:finder"],
+        ["xpath=//button[@id='logon-signin']", "xpath:attributes"],
+        ["xpath=//form[@id='logon-form']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ce82989-ff92-4c6b-8ccd-d20c9129f92d",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d430dc4b-32bf-45f4-bbb4-9ba956dde733",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//input[@value='Cash']/following-sibling::div[text()='Cash']",
+      "targets": [],
+      "value": "30000"
+    }]
+  }, {
+    "id": "c5f95390-efa3-4afa-b0de-2813d4c86cb6",
+    "name": "Test_Home_Page",
+    "commands": [{
+      "id": "b6ff3469-9bdd-4bc8-a093-6a6b1bf89975",
+      "comment": "Reading the data",
+      "command": "run",
+      "target": "1_Data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "77fa2e7c-3168-4d48-a30e-3f00553fd86c",
+      "comment": "Logging into FXBA",
+      "command": "run",
+      "target": "2_Page_Login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "10434c54-b327-4a86-b162-b37ce89f6ac0",
+      "comment": "Run time variable for checking actions under 'Cash'",
+      "command": "store",
+      "target": "cash",
+      "targets": [],
+      "value": "currentselection"
+    }, {
+      "id": "d422ce56-6bb3-44e9-9e0d-9451f0296e6a",
+      "comment": "Checking the actions under Cash",
+      "command": "run",
+      "target": "3_Check_Cash_Options_Tabs",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ee5f7a8-e404-49b3-814a-0bf859f99995",
+      "comment": "Clicking on 'Options'",
+      "command": "click",
+      "target": "xpath=//input[@value='Options']/following-sibling::div[text()='Options']",
+      "targets": [
+        ["css=.btn:nth-child(2) > div:nth-child(2)", "css:finder"],
+        ["xpath=//nav[@id='toolbar']/div/div[2]/div/label[2]/div", "xpath:idRelative"],
+        ["xpath=//label[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2bd0b061-3d69-4695-a312-32c3d4136e16",
+      "comment": "Run time variable for checking actions under 'Options'",
+      "command": "store",
+      "target": "options",
+      "targets": [],
+      "value": "currentselection"
+    }, {
+      "id": "8d07b1bd-1927-4f93-8784-55ee640cc242",
+      "comment": "checking the actions under Option",
+      "command": "run",
+      "target": "3_Check_Cash_Options_Tabs",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6c99cb07-e184-4c06-b535-5d9e702fa0cf",
+      "comment": "Navigating back to 'Cash'",
+      "command": "click",
+      "target": "xpath=//input[@value='Cash']/following-sibling::div[text()='Cash']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ec65d59e-760e-407d-bf3b-762390603c9a",
+      "comment": "Bringing 'DealId' to Fixed Columns",
+      "command": "run",
+      "target": "4_Bring_DealID_To_Viewport_by_ColumnSelector",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f0891e56-8da4-43ab-b23c-8a443aa82c2c",
+    "name": "3_Check_Cash_Options_Tabs",
+    "commands": [{
+      "id": "d590ebb1-cd3b-482d-82fb-5d81af8b0b11",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "return window.location.href",
+      "targets": [],
+      "value": "url"
+    }, {
+      "id": "89ef23ce-88e6-400e-93ab-ea7049fe4ade",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "return ${url}.includes(${currentselection})",
+      "targets": [],
+      "value": "bool"
+    }, {
+      "id": "f878a92f-9d94-46fa-b03e-67ced0efba33",
+      "comment": "check if current url is as per Option or Cash",
+      "command": "//assert",
+      "target": "bool",
+      "targets": [],
+      "value": "true"
+    }, {
+      "id": "7b027540-d298-4fdc-8573-2bb0e825298c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css= div.tabs-container >ul> li:nth-child(1)  > a > div:nth-child(1)",
+      "targets": [],
+      "value": "Pending"
+    }, {
+      "id": "0333cf57-3d65-4718-86ed-03aef4dc9434",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css= div.tabs-container >ul> li:nth-child(2)  > a > div:nth-child(1)",
+      "targets": [
+        ["css=#ngb-nav-1 > div:nth-child(1)", "css:finder"],
+        ["xpath=//a[@id='ngb-nav-1']/div", "xpath:idRelative"],
+        ["xpath=//li[2]/a/div", "xpath:position"]
+      ],
+      "value": "Accepted"
+    }, {
+      "id": "a55b3146-dddb-43c3-855e-daeb7dec3dc6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css= div.tabs-container >ul> li:nth-child(3)  > a > div:nth-child(1)",
+      "targets": [],
+      "value": "Rejected"
+    }, {
+      "id": "8420163d-943d-4f98-83f9-a82eafed4387",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css= div.tabs-container >ul> li:nth-child(4)  > a > div:nth-child(1)",
+      "targets": [],
+      "value": "UnActioned"
+    }]
+  }, {
+    "id": "0edb9cc4-4de7-43a0-ac1d-ba527411224a",
+    "name": "1_Data",
+    "commands": [{
+      "id": "a852e090-2dc0-4be2-9b42-5c69211181f4",
+      "comment": "",
+      "command": "store",
+      "target": "atuluser1",
+      "targets": [],
+      "value": "username"
+    }, {
+      "id": "c7a68acc-5aae-44b8-b09d-9a71eda2f369",
+      "comment": "",
+      "command": "store",
+      "target": "Undert@ker@123",
+      "targets": [],
+      "value": "password"
+    }]
+  }, {
+    "id": "aaaa3e0a-e361-413d-89fa-29375a6ccfac",
+    "name": "4_Bring_DealID_To_Viewport_by_scrolling",
+    "commands": [{
+      "id": "7f79452f-e68b-4454-be2d-259661d3c461",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.getElementsByClassName(\"ag-body-horizontal-scroll-viewport\").item(0).scrollTo(700,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ee243694-157e-451c-83a1-82e5fc3ef031",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "xpath= //as-split-area[contains(@style,'order: 0')]//span[text()='DealId']//ancestor::div[@ref='eLabel']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "acd1fe04-245d-4545-a724-8920f32e1870",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "xpath= //as-split-area[contains(@style,'order: 0')]//span[text()='Instrument']//ancestor::div[@ref='eLabel']",
+      "targets": [],
+      "value": "40,2"
+    }, {
+      "id": "670e9d9f-0bf6-48fb-8d35-848dc511994d",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "xpath= //as-split-area[contains(@style,'order: 0')]//span[text()='Instrument']//ancestor::div[@ref='eLabel']",
+      "targets": [],
+      "value": "40,2"
+    }]
+  }, {
+    "id": "27c3091b-a536-48ef-b77b-3f27bc770318",
+    "name": "4_Bring_DealID_To_Viewport_by_ColumnSelector",
+    "commands": [{
+      "id": "932b142b-5677-42d3-a3e2-bb250d852001",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-columns",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd98c9d6-0fb5-406c-beb0-3136bd71b25d",
+      "comment": "",
+      "command": "mouseDown",
+      "target": "xpath= //div[@class='modal-body']//span[text()='DealId']/preceding-sibling::div/span[@role='presentation']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39b5bcf6-3936-4a43-b9f4-83f70114547c",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "xpath=  //div[@class='modal-body']//span[text()='Instrument']/parent::div",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "89afe3d3-a9fd-4dbe-a0ac-97c440c92ef1",
+      "comment": "",
+      "command": "mouseUp",
+      "target": "xpath=  //div[@class='modal-body']//span[text()='Instrument']/parent::div",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "201d09a7-4167-40cd-bd3d-c8c159fd31ca",
+      "comment": "",
+      "command": "click",
+      "target": "xpath= //div[@class='modal-footer']//button[text()=\"OK\"]",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7318149a-8825-4518-be7f-690a644cb1df",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": true,
+    "timeout": 300,
+    "tests": ["c5f95390-efa3-4afa-b0de-2813d4c86cb6"]
+  }],
+  "urls": ["https://fxservices-dev1.markit.partners/affirmations2/#/login", "https://fxservices-qa3.markit.partners/affirmations/#/login"],
+  "plugins": []
+}
