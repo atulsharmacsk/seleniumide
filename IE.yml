@@ -1,11 +1,7 @@
 capabilities:
-   browserName: "internet explorer"
-   internetExplorerOptions:
-        IntroduceInstabilityByIgnoringProtectedModeSettings: true
-        INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS: true
-        ignoreProtectedModeSettings: true
-        IGNORE_ZOOM_SETTING: true
-        ignoreZoomSetting: true
+   browserName: "internet explorer" 
+   ignoreProtectedModeSettings: true
+   ignoreZoomSetting: true
    platformName: "windows"        
 server: "http://localhost:4444/wd/hub"
 

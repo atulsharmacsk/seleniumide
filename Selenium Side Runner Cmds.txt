@@ -83,6 +83,7 @@ Additionally, "Enhanced Protected Mode" must be disabled for IE 10 and higher. T
 The browser zoom level must be set to 100% so that the native mouse events can be set to the correct coordinates.
 For Windows 10, you also need to set "Change the size of text, apps, and other items" to 100% in display settings.
 
+IE will work with 2.50 driver
 
 
 
