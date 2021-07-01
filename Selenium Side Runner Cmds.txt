@@ -1,0 +1,130 @@
+selenium-side-runner Amazon.side
+selenium-side-runner -c "browserName=chrome" Amazon.side
+
+selenium-side-runner -c "browserName=chrome"
+selenium-side-runner -c "browserName='internet explorer'"
+selenium-side-runner -c "browserName=edge" ->download driver corrresponding to version of your edge browser, rename the driver to MicrosoftWebDriver.exe then use cmd
+selenium-side-runner -c "browserName=MicrosoftEdge" Angukar.side
+selenium-side-runner -c "browserName=firefox" -> did not work, used->selenium-side-runner -c "browserName=firefox acceptInsecureCerts=true" Amazon.side
+selenium-side-runner -c "browserName=safari"
+
+For iE,Enable Protected Mode must be set to the same value (enabled or disabled) for all zones.
+SessionNotCreatedError: Unexpected error launching Internet Explorer. Browser zoom level was set to 150%.->set to 100%
+IEdriver 32->3.9.0
+
+
+selenium-side-runner -c "browserName='internet explorer' nativeEvents=false" Amazon.side
+
+
+Json file->selenium-side-runner -c "browserName=firefox acceptInsecureCerts=true" --output-directory "New folder" Angukar.side
+
+selenium-side-runner -c "goog:chromeOptions.args=[--headless,--nogpu] browserName=chrome" Angular.side
+
+selenium-side-runner -c "browserName=firefox acceptInsecureCerts=true moz:firefoxOptions.args=[-headless]" project.side
+
+selenium-side-runner -c "browserName=internet explorer' InternetExplorerOptions.args=[{IntroduceInstabilityByIgnoringProtectedModeSettings =true}]" Angukar.side
+
+selenium-side-runner --filter smoke aa.side->all test cases staring with smoke will run
+
+
+side.yml used for testing:
+"capabilities": [{
+"alwaysMatch": {
+"browserName": "chrome",
+"goog:chromeOptions": {
+args: ["--headless", "--enable-logging", "--disable-gpu", "--disable-extensions"]
+"perfLoggingPrefs": {
+"enableNetwork": true,
+"enablePage": true
+}
+}
+}
+},
+"desiredCapabilities": {
+"browserName": "chrome",
+"goog:chromeOptions": {
+"perfLoggingPrefs": {
+"enableNetwork": true,
+"enablePage": true
+}
+},
+"goog:loggingPrefs": {
+"browser": "ALL",
+"performance": "ALL"
+}
+}
+
+
+selenium-side-runner -c "chromeOptions.prefs=[{browser.download.manager.showWhenStarting=false, safebrowsing.enabled=false, browser.helperApps.neverAsk.saveToDisk=application/download, application/octet-stream, text/csv, application/vnd.ms-excel, application/msexcel, application/x-msexcel, application/excel, application/pdf, safebrowsing-disable-download-protection=true, download.default_directory=G:\Downloads\SideRunner}]" E:\ESPOcho5.side
+
+
+selenium-side-runner --output-directory=results --output-format=jest
+# Outputs results in `jest` frormat in `./results/projectName.json'
+selenium-side-runner --output-directory=results --output-format=junit
+# Outputs results in `junit` frormat in `./results/projectName.xml'
+
+grid-
+selenium-side-runner --server http://localhost:4444/wd/hub -c "browserName=chrome platformName=Windows acceptInsecureCerts=true" FXBA_POC.side
+selenium-side-runner --server http://localhost:4444/wd/hub -c "browserName=firefox platformName=Windows acceptInsecureCerts=true" FXBA_POC.side
+
+
+java -jar selenium-server-standalone-3.141.59.jar -role hub
+java -jar selenium-server-standalone-3.141.59.jar -role node -hub http://10.207.200.78:4444/grid/register/
+Edge is not by default available so add it as a separate node:-
+java -Dwebdriver.edge.driver="C:\Users\atul.sharma\FXBA_POC\Selenium_IDE\MicrosoftWebDriver.exe" -jar selenium-server-standalone-3.141.59.jar -port 5556 -role node -hub http://localhost:4444/grid/register -browser "browserName=MicrosoftEdge, platform=WINDOWS, maxInstances=10"
+
+
+No need to set up a separate node use nodeconfig:-
+-jar selenium-server-standalone-3.141.59.jar -role node -nodeConfig nodeconfig.json 
+
+for ie:-
+Add fxba.cer to trusted certificates.
+Additionally, "Enhanced Protected Mode" must be disabled for IE 10 and higher. This option is found in the Advanced tab of the Internet Options dialog.
+The browser zoom level must be set to 100% so that the native mouse events can be set to the correct coordinates.
+For Windows 10, you also need to set "Change the size of text, apps, and other items" to 100% in display settings.
+
+
+
+
+nodeconfig.json
+
+{
+	"capabilities": [
+		{
+			"browserName": "firefox",
+			"marionette": true,
+			"maxInstances": 5,
+			"seleniumProtocol": "WebDriver"
+		},
+		{
+			"browserName": "chrome",
+			"maxInstances": 5,
+			"seleniumProtocol": "WebDriver"
+		},
+		{
+			"browserName": "internet explorer",
+			"maxInstances": 2,
+			"seleniumProtocol": "WebDriver"
+		},
+		{
+			"browserName": "MicrosoftEdge",
+			"maxInstances": 5,
+			"seleniumProtocol": "WebDriver"
+		}
+	],
+	"proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+	"maxSession": 5,
+	"port": -1,
+	"register": true,
+	"registerCycle": 5000,
+	"hub": "http://localhost:4444",
+	"nodeStatusCheckTimeout": 5000,
+	"nodePolling": 5000,
+	"role": "node",
+	"unregisterIfStillDownAfter": 60000,
+	"downPollingLimit": 2,
+	"debug": false,
+	"servlets": [],
+	"withoutServlets": [],
+	"custom": {}
+}

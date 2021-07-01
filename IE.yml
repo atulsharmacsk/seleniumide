@@ -1,9 +1,12 @@
 capabilities:
    browserName: "internet explorer"
    internetExplorerOptions:
-      args:
-        - "-headless"
-   platformName: "windows"
+        IntroduceInstabilityByIgnoringProtectedModeSettings: true
+        INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS: true
+        ignoreProtectedModeSettings: true
+        IGNORE_ZOOM_SETTING: true
+        ignoreZoomSetting: true
+   platformName: "windows"        
 server: "http://localhost:4444/wd/hub"
 
 
