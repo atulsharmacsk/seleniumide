@@ -17,7 +17,7 @@
       "id": "b176dff4-e846-4032-ba93-f317f4a604f3",
       "comment": "",
       "command": "open",
-      "target": "https://fxservices-qa3.markit.partners/affirmations/#/login",
+      "target": "${URL}",
       "targets": [],
       "value": ""
     }, {
@@ -126,7 +126,7 @@
     }]
   }, {
     "id": "c5f95390-efa3-4afa-b0de-2813d4c86cb6",
-    "name": "Test_Home_Page",
+    "name": "Test_Affirm_Deal",
     "commands": [{
       "id": "b6ff3469-9bdd-4bc8-a093-6a6b1bf89975",
       "comment": "Reading the data",
@@ -152,7 +152,7 @@
       "id": "d422ce56-6bb3-44e9-9e0d-9451f0296e6a",
       "comment": "Checking the actions under Cash",
       "command": "run",
-      "target": "3_Check_Cash_Options_Tabs",
+      "target": "3_Check_Cash/Options_Tabs",
       "targets": [],
       "value": ""
     }, {
@@ -177,7 +177,7 @@
       "id": "8d07b1bd-1927-4f93-8784-55ee640cc242",
       "comment": "checking the actions under Option",
       "command": "run",
-      "target": "3_Check_Cash_Options_Tabs",
+      "target": "3_Check_Cash/Options_Tabs",
       "targets": [],
       "value": ""
     }, {
@@ -188,16 +188,30 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "ec65d59e-760e-407d-bf3b-762390603c9a",
-      "comment": "Bringing 'DealId' to Fixed Columns",
-      "command": "run",
-      "target": "4_Bring_DealID_To_Viewport_by_ColumnSelector",
+      "id": "330d8466-5912-4231-be56-e852394a3e66",
+      "comment": "Tab to look into",
+      "command": "store",
+      "target": "Active",
+      "targets": [],
+      "value": "Tab"
+    }, {
+      "id": "8b0aae1a-c9ee-4c06-ab82-90ab053353a9",
+      "comment": "Action to perform",
+      "command": "store",
+      "target": "Affirm",
+      "targets": [],
+      "value": "Action"
+    }, {
+      "id": "bb6cc11e-2a88-4b4c-9ced-9d2cf38d39e6",
+      "comment": "Perform 'Affirm' in 'Active' tab",
+      "command": "//run",
+      "target": "5_Perform_Action",
       "targets": [],
       "value": ""
     }]
   }, {
     "id": "f0891e56-8da4-43ab-b23c-8a443aa82c2c",
-    "name": "3_Check_Cash_Options_Tabs",
+    "name": "3_Check_Cash/Options_Tabs",
     "commands": [{
       "id": "d590ebb1-cd3b-482d-82fb-5d81af8b0b11",
       "comment": "",
@@ -251,11 +265,46 @@
       "target": "css= div.tabs-container >ul> li:nth-child(4)  > a > div:nth-child(1)",
       "targets": [],
       "value": "UnActioned"
+    }, {
+      "id": "81335d7e-71a1-4a54-a966-df6fab65179c",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class='ag-pinned-left-header']//span[text()='DealId']",
+      "targets": [],
+      "value": "is_DealId_fixedcolumns"
+    }, {
+      "id": "198d2f19-4074-457a-92bb-cda3bbe14bda",
+      "comment": "",
+      "command": "if",
+      "target": "${is_DealId_fixedcolumns}==0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "02ce3473-d6d8-4d9c-a565-0bfe254bbbbe",
+      "comment": "",
+      "command": "run",
+      "target": "4_Bring_DealID_To_Viewport_by_ColumnSelector",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b2fa7e1-5734-4dbb-8b73-4258f6bf5aea",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "0edb9cc4-4de7-43a0-ac1d-ba527411224a",
     "name": "1_Data",
     "commands": [{
+      "id": "0b6677f2-cbaf-4172-b726-8b41885ef363",
+      "comment": "",
+      "command": "store",
+      "target": "https://fxservices-qa3.markit.partners/affirmations/#/login",
+      "targets": [],
+      "value": "URL"
+    }, {
       "id": "a852e090-2dc0-4be2-9b42-5c69211181f4",
       "comment": "",
       "command": "store",
@@ -341,6 +390,116 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "1835c802-2411-4147-9e81-2f8f1c119c94",
+    "name": "Test_Reject_Deal",
+    "commands": [{
+      "id": "754f5dd7-3ad2-41ee-99a7-cbd83974e678",
+      "comment": "Reading the data",
+      "command": "run",
+      "target": "1_Data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "05c81ac9-e774-4f44-9969-41a716d22b7c",
+      "comment": "Logging into FXBA",
+      "command": "run",
+      "target": "2_Page_Login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ce1292e-33b2-4b98-b27d-8947b0f3f49b",
+      "comment": "Run time variable for checking actions under 'Cash'",
+      "command": "store",
+      "target": "cash",
+      "targets": [],
+      "value": "currentselection"
+    }, {
+      "id": "84bc9bb0-827b-499e-9a9d-0f6be83e7101",
+      "comment": "Checking the actions under Cash",
+      "command": "run",
+      "target": "3_Check_Cash/Options_Tabs",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "41153331-9f1a-40c8-b63a-a68995aac1ad",
+      "comment": "Clicking on 'Options'",
+      "command": "click",
+      "target": "xpath=//input[@value='Options']/following-sibling::div[text()='Options']",
+      "targets": [
+        ["css=.btn:nth-child(2) > div:nth-child(2)", "css:finder"],
+        ["xpath=//nav[@id='toolbar']/div/div[2]/div/label[2]/div", "xpath:idRelative"],
+        ["xpath=//label[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3353fc77-3ea5-42dc-926a-188519b008ed",
+      "comment": "Run time variable for checking actions under 'Options'",
+      "command": "store",
+      "target": "options",
+      "targets": [],
+      "value": "currentselection"
+    }, {
+      "id": "d1275a80-5082-456f-8530-7072ee61f4a3",
+      "comment": "checking the actions under Option",
+      "command": "run",
+      "target": "3_Check_Cash/Options_Tabs",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4de3eeec-ddba-43e1-9419-3e8c976478f7",
+      "comment": "Navigating back to 'Cash'",
+      "command": "click",
+      "target": "xpath=//input[@value='Cash']/following-sibling::div[text()='Cash']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0e736d07-00a5-4fdd-87d6-67caf4c034cd",
+      "comment": "Tab to look into",
+      "command": "store",
+      "target": "Active",
+      "targets": [],
+      "value": "Tab"
+    }, {
+      "id": "e39ce5e9-a692-4ffa-9717-c71a0e157a87",
+      "comment": "Action to perform",
+      "command": "store",
+      "target": "Reject",
+      "targets": [],
+      "value": "Action"
+    }, {
+      "id": "1aa0d649-f274-4ad5-9b0b-3fa2bbb60387",
+      "comment": "Perform 'Reject' in 'Active' tab",
+      "command": "//run",
+      "target": "5_Perform_Action",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f6c3a55a-a0f4-4dc2-93a4-e0f20dc1f06c",
+    "name": "5_Perform_Action",
+    "commands": [{
+      "id": "96825ef8-236c-424d-a432-e09ef9013d2c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath= //div[text()='${Tab}']//parent::a",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "15610c7f-a5c5-4c51-9070-8a852900fc72",
+      "comment": "",
+      "command": "click",
+      "target": "xpath= //div[contains(text(),'${DealID}')]//ancestor::div[@role='row']//input[@type='checkbox']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82cf333f-8879-4a78-97c6-6660770a6f89",
+      "comment": "",
+      "command": "click",
+      "target": "xpath= //button[contains(text(),'${Action}')]",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "7318149a-8825-4518-be7f-690a644cb1df",
@@ -348,7 +507,7 @@
     "persistSession": false,
     "parallel": true,
     "timeout": 300,
-    "tests": ["c5f95390-efa3-4afa-b0de-2813d4c86cb6"]
+    "tests": ["c5f95390-efa3-4afa-b0de-2813d4c86cb6", "1835c802-2411-4147-9e81-2f8f1c119c94"]
   }],
   "urls": ["https://fxservices-dev1.markit.partners/affirmations2/#/login", "https://fxservices-qa3.markit.partners/affirmations/#/login"],
   "plugins": []
