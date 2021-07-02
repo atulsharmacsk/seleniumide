@@ -14,6 +14,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "b84a3671-0424-4691-8ebf-5a8c54bc691c",
+      "comment": "",
+      "command": "echo",
+      "target": "Opening the URL of application, URL is- ${URL}",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "b176dff4-e846-4032-ba93-f317f4a604f3",
       "comment": "",
       "command": "open",
@@ -56,17 +63,17 @@
       "targets": [],
       "value": "loginbutton"
     }, {
-      "id": "f973dc75-32bd-430c-8a99-282267a9f313",
-      "comment": "checking if login button is present",
-      "command": "echo",
-      "target": "${loginbutton}",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "f648ea9a-d75a-4711-92a8-abfc39007c2a",
       "comment": "",
       "command": "if",
       "target": "${loginbutton}==1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "664e2a11-2da4-4ce0-8293-9e918323984f",
+      "comment": "",
+      "command": "echo",
+      "target": "Logging into the application with username-> ${username}.",
       "targets": [],
       "value": ""
     }, {
@@ -123,6 +130,13 @@
       "target": "xpath=//input[@value='Cash']/following-sibling::div[text()='Cash']",
       "targets": [],
       "value": "30000"
+    }, {
+      "id": "5cdb7c1f-e6ee-4cda-8ee3-8396e7069e75",
+      "comment": "",
+      "command": "echo",
+      "target": "Login is successful.",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "c5f95390-efa3-4afa-b0de-2813d4c86cb6",
@@ -234,6 +248,13 @@
       "targets": [],
       "value": "true"
     }, {
+      "id": "1fed036a-7674-4420-a0f3-5bafe388e11b",
+      "comment": "",
+      "command": "echo",
+      "target": "Switched to ${currentselection} successfully.",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "7b027540-d298-4fdc-8573-2bb0e825298c",
       "comment": "",
       "command": "verifyText",
@@ -265,6 +286,13 @@
       "target": "css= div.tabs-container >ul> li:nth-child(4)  > a > div:nth-child(1)",
       "targets": [],
       "value": "UnActioned"
+    }, {
+      "id": "f9cc1812-084d-40b4-91b8-a9c1b47be4d9",
+      "comment": "",
+      "command": "echo",
+      "target": "Completed the actions verification under ${currentselection}.",
+      "targets": [],
+      "value": ""
     }, {
       "id": "81335d7e-71a1-4a54-a966-df6fab65179c",
       "comment": "",
@@ -298,6 +326,13 @@
     "id": "0edb9cc4-4de7-43a0-ac1d-ba527411224a",
     "name": "1_Data",
     "commands": [{
+      "id": "aa189db9-7a37-4394-9db3-1d41db37aa7b",
+      "comment": "",
+      "command": "echo",
+      "target": "Setting up the test data.",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "0b6677f2-cbaf-4172-b726-8b41885ef363",
       "comment": "",
       "command": "store",
@@ -318,6 +353,13 @@
       "target": "Undert@ker@123",
       "targets": [],
       "value": "password"
+    }, {
+      "id": "72e0d76d-599e-48e4-ae96-0de6c07086b2",
+      "comment": "",
+      "command": "echo",
+      "target": "Test data setup is successful.",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "aaaa3e0a-e361-413d-89fa-29375a6ccfac",
@@ -355,6 +397,13 @@
     "id": "27c3091b-a536-48ef-b77b-3f27bc770318",
     "name": "4_Bring_DealID_To_Viewport_by_ColumnSelector",
     "commands": [{
+      "id": "f8abb442-9477-4a4c-8c80-ad4723922359",
+      "comment": "",
+      "command": "echo",
+      "target": "Bringing DealId to fixed set of columns.",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "932b142b-5677-42d3-a3e2-bb250d852001",
       "comment": "",
       "command": "click",
@@ -389,6 +438,20 @@
       "target": "xpath= //div[@class='modal-footer']//button[text()=\"OK\"]",
       "targets": [],
       "value": ""
+    }, {
+      "id": "2886d0bc-23a3-4fa7-bbda-bb56945acddd",
+      "comment": "",
+      "command": "echo",
+      "target": "Successfully brought DealId to fixed set of columns .",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a95c7a18-6d82-4b5b-a39e-e25b8d42ae95",
+      "comment": "",
+      "command": "waitForElementNotPresent",
+      "target": "css=.d-block",
+      "targets": [],
+      "value": "30000"
     }]
   }, {
     "id": "1835c802-2411-4147-9e81-2f8f1c119c94",
@@ -479,6 +542,13 @@
     "id": "f6c3a55a-a0f4-4dc2-93a4-e0f20dc1f06c",
     "name": "5_Perform_Action",
     "commands": [{
+      "id": "79625814-b270-4b6b-bf7e-a6f743f50d44",
+      "comment": "",
+      "command": "echo",
+      "target": "Pefroming ${Action} for ${Tab}.",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "96825ef8-236c-424d-a432-e09ef9013d2c",
       "comment": "",
       "command": "click",
@@ -499,13 +569,20 @@
       "target": "xpath= //button[contains(text(),'${Action}')]",
       "targets": [],
       "value": ""
+    }, {
+      "id": "ed51cf2f-ddf6-4b63-9851-12450da83bba",
+      "comment": "",
+      "command": "echo",
+      "target": "Successfully performed ${Action} for ${Tab}.",
+      "targets": [],
+      "value": ""
     }]
   }],
   "suites": [{
     "id": "7318149a-8825-4518-be7f-690a644cb1df",
     "name": "Default Suite",
     "persistSession": false,
-    "parallel": true,
+    "parallel": false,
     "timeout": 300,
     "tests": ["c5f95390-efa3-4afa-b0de-2813d4c86cb6", "1835c802-2411-4147-9e81-2f8f1c119c94"]
   }],

@@ -1,7 +1,7 @@
 capabilities:
    browserName: "chrome"
    chromeOptions:
-    args:
+      args:
         - headless
    acceptInsecureCerts: true
    platformName: "windows"

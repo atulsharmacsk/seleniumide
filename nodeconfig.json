@@ -15,9 +15,9 @@
 			"browserName": "internet explorer",
 			"version": "11",
 			"ignoreProtectedModeSettings": true,
-			"IgnoreZoomLevel": true,
-			"args": ["--silent", "--no-sandbox", "--test-type=browser", "--lang=US", "--start-maximized"],
-			"maxInstances": 2,
+			"ignoreZoomSetting": true,
+			"nativeEvents": false,
+			"maxInstances": 5,
 			"seleniumProtocol": "WebDriver"
 		},
 		{

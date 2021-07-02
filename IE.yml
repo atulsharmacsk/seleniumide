@@ -2,7 +2,10 @@ capabilities:
    browserName: "internet explorer" 
    ignoreProtectedModeSettings: true
    ignoreZoomSetting: true
-   platformName: "windows"        
+   enablePersistentHover: false
+   disableNativeEvents: true
+   requireWindowFocus: false
+   platformName: "windows"  
 server: "http://localhost:4444/wd/hub"
 
 
